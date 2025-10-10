@@ -1,0 +1,247 @@
+﻿/*
+Selector universal (*): aplica estilos a todos los elementos.
+'box-sizing: border-box;' facilita el cálculo de los anchos y las alturas.
+*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Estilos para el cuerpo de la página */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+
+/* Estilos del header - Ya explicados */
+.main-header {
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.main-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('Imagenes/header.jfif');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    filter: brightness(0.4);
+}
+
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+
+
+.logo {
+    height: 50px;
+    margin-right: 15px;
+}
+
+
+.site-name {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+
+.main-nav li {
+    margin-left: 30px;
+}
+
+
+.main-nav a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+
+.main-nav a:hover {
+    color: #fca311;
+}
+
+
+/*
+--- NUEVOS ESTILOS PARA EL CONTENIDO ---
+*/
+
+
+/*
+Estilos para el contenedor principal. Le damos espacio en los lados y
+un margen superior.
+*/
+.main-content {
+    padding: 40px 20px;
+    max-width: 1200px; /* Ancho máximo para que no se vea demasiado estirado */
+    margin: 20px auto; /* Centra el contenedor en la página */
+}
+
+
+/*
+El 'content-container' usará Flexbox para que la sección y el 'aside'
+estén uno al lado del otro.
+*/
+.content-container {
+    display: flex;
+    gap: 30px; /* Espacio entre la sección y el aside */
+    flex-wrap: wrap; /* Permite que los elementos se muevan a una nueva fila en pantallas pequeñas */
+}
+
+
+/*
+La 'main-section' será más ancha que el 'aside'.
+'flex: 2;' le da el doble de espacio que al 'aside' (que tiene 'flex: 1').
+*/
+.main-section {
+    flex: 2;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+/*
+La imagen dentro de la sección.
+'width: 100%;' hace que la imagen ocupe todo el ancho de su contenedor.
+'height: auto;' mantiene la proporción de la imagen.
+*/
+.section-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 20px 0; /* Espacio arriba y abajo de la imagen */
+}
+
+
+/* Estilos para los títulos de la sección y el aside */
+.main-section h2, .main-aside h3 {
+    color: #0077b6; /* Un color llamativo para los títulos */
+    margin-bottom: 15px;
+}
+
+
+/*
+El 'aside' ocupa una porción menor del espacio.
+*/
+.main-aside {
+    flex: 1;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Estilos para las listas de enlaces y redes sociales */
+.aside-links, .social-icons {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+
+.aside-links li {
+    margin-bottom: 10px;
+}
+
+
+.aside-links a {
+    text-decoration: none;
+    color: #0077b6;
+    transition: color 0.3s ease;
+}
+
+
+.aside-links a:hover {
+    color: #005f93;
+}
+
+
+/* Estilos para los íconos de redes sociales. Usamos Flexbox para alinearlos. */
+.social-icons {
+    display: flex;
+    gap: 20px; /* Espacio entre los íconos */
+}
+
+
+.social-icons a {
+    color: #fff;
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%; /* Hace que los íconos sean circulares */
+    transition: transform 0.3s ease;
+}
+
+
+/* Cambia el color de fondo de cada ícono */
+.fa-twitter { background-color: #1da1f2; }
+.fa-facebook { background-color: #3b5998; }
+.fa-instagram { background-color: #c13584; }
+
+
+/* Efecto al pasar el mouse por encima de los íconos */
+.social-icons a:hover {
+    transform: scale(1.1); /* Agranda el ícono al pasar el mouse */
+}
+
+
+/*
+--- ESTILOS DEL FOOTER ---
+*/
+.main-footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+
+.main-footer p {
+    margin-bottom: 5px;
+}
+
+
+.main-footer a {
+    color: #fca311;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+
+.main-footer a:hover {
+    color: #ffd166;
+}
