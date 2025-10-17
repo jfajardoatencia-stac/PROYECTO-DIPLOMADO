@@ -64,6 +64,24 @@ body {
     text-transform: uppercase;
 }
 
+/* Navegación - Estilos de la versión remota fusionados */
+.main-nav li {
+    margin-left: 30px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+    color: #11fca2;
+}
+
+
 /* ---------------- MAIN CONTAINER Y HERO (ZONA PRINCIPAL) ---------------- */
 
 main {
@@ -146,6 +164,22 @@ main {
     align-items: flex-start; /* Alinea los elementos al inicio */
 }
 
+/* Estilos para el contenedor principal. Le damos espacio en los lados y un margen superior. (Estilo remoto) */
+.main-content {
+    padding: 40px 20px;
+    max-width: 1200px; /* Ancho máximo para que no se vea demasiado estirado */
+    margin: 20px auto; /* Centra el contenedor en la página */
+}
+
+/* El 'content-container' usará Flexbox (Estilo remoto) */
+/* NOTA: Tu estructura usa .main-content-wrapper en lugar de .content-container, por eso dejo .main-content-wrapper como principal. */
+/* .content-container {
+    display: flex;
+    gap: 30px; 
+    flex-wrap: wrap;
+} */
+
+
 /* SECTION: Contenido Principal (Zona Caliente) */
 .main-section {
     flex: 3; /* Ocupa 3/4 partes del ancho */
@@ -168,6 +202,14 @@ main {
     margin-top: 30px;
     margin-bottom: 15px;
     font-size: 1.4rem;
+}
+
+/* La imagen dentro de la sección. (Estilo remoto) */
+.section-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 20px 0; /* Espacio arriba y abajo de la imagen */
 }
 
 /* Listas de causas y soluciones */
@@ -252,16 +294,16 @@ hr {
 
 .aside-links a {
     text-decoration: none;
-    color: #e63946; /* Resalta los enlaces */
+    color: #e63946; /* Se mantiene el color local para resaltar (más visible que el verde/azul remoto) */
     font-weight: 600;
     transition: color 0.3s ease;
 }
 
 .aside-links a:hover {
-    color: #1d3557;
+    color: #1d3557; /* Se mantiene el color local en hover (más coherente con la paleta) */
 }
 
-/* Íconos sociales circulares (tus estilos base) */
+/* Íconos sociales circulares */
 .social-icons {
     display: flex;
     gap: 20px;
