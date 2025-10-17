@@ -84,7 +84,7 @@ body {
 
 
 .main-nav a:hover {
-    color: #fca311;
+    color: #11fca2;
 }
 
 
@@ -143,7 +143,7 @@ La imagen dentro de la sección.
 
 /* Estilos para los títulos de la sección y el aside */
 .main-section h2, .main-aside h3 {
-    color: #0077b6; /* Un color llamativo para los títulos */
+    color: #3f717a; /* Un color llamativo para los títulos */
     margin-bottom: 15px;
 }
 
@@ -175,13 +175,13 @@ El 'aside' ocupa una porción menor del espacio.
 
 .aside-links a {
     text-decoration: none;
-    color: #0077b6;
+    color: #06e419;
     transition: color 0.3s ease;
 }
 
 
 .aside-links a:hover {
-    color: #005f93;
+    color: #039ff3;
 }
 
 
