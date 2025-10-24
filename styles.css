@@ -52,8 +52,8 @@ body {
 }
 
 .logo {
-    height: 50px;
-    margin-right: 15px;
+    height: 70px;
+    margin-right: 55px;
     /* Efecto sutil para el logo */
     filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5)); 
 }
@@ -207,9 +207,9 @@ main {
 /* La imagen dentro de la sección. (Estilo remoto) */
 .section-image {
     width: 100%;
-    height: auto;
+    height: 100%;
     border-radius: 8px;
-    margin: 20px 0; /* Espacio arriba y abajo de la imagen */
+    margin: 10px 15; /* Espacio arriba y abajo de la imagen */
 }
 
 /* Listas de causas y soluciones */
