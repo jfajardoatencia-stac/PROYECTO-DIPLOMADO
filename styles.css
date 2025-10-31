@@ -1,9 +1,11 @@
 ﻿/*
-Selector universal (*): aplica estilos a todos los elementos.
-'box-sizing: border-box;' facilita el cálculo de los anchos y las alturas.
+===================================================
+1. RESET Y ESTILOS BASE
+===================================================
 */
 * {
-    box-sizing: border-box;
+    /* Selector universal (*): aplica estilos a todos los elementos. */
+    box-sizing: border-box; /* Facilita el cálculo de anchos y alturas */
     margin: 0;
     padding: 0;
 }
@@ -11,22 +13,37 @@ Selector universal (*): aplica estilos a todos los elementos.
 /* Estilos para el cuerpo de la página */
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #f0f0f5; /* Fondo más claro y moderno */
+    background-color: #e4f0f8; 
     color: #333;
-    line-height: 1.6; /* Mejor legibilidad */
+    line-height: 1.6;
 }
 
-/* ---------------- HEADER ---------------- */
+/* Contenedor principal para el contenido */
+main {
+    max-width: 1200px; /* Ancho principal para el contenido */
+    margin: 0 auto;
+    padding: 20px;
+    /* CORRECCIÓN: Se elimina el margin-top: 100px; porque causa el gran espacio superior */
+    /* El header usa position: sticky, por lo que el contenido debe comenzar justo debajo. */
+}
 
+
+/*
+===================================================
+2. HEADER
+===================================================
+*/
 .main-header {
     height: 100px;
     display: flex;
-    justify-content: flex-start; /* Ajustado para el logo a la izquierda */
+    justify-content: flex-start;
     align-items: center;
     padding: 0 40px;
-    position: relative;
+    position: sticky; 
+    top: 0; 
+    z-index: 1000; 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    overflow: hidden; /* Asegura que el pseudo-elemento no sobresalga */
+    overflow: hidden; 
 }
 
 .main-header::before {
@@ -36,25 +53,23 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    /* Asegúrate de tener la imagen 'Imagenes/header.jfif' */
     background-image: url('Imagenes/header.jfif'); 
     background-size: cover;
     background-position: center;
     z-index: -1;
-    filter: brightness(0.3) contrast(1.1); /* Más oscuro y con contraste para que el texto resalte */
+    filter: brightness(0.3) contrast(1.1);
 }
 
 .logo-container {
     display: flex;
     align-items: center;
     color: #fff;
-    z-index: 1; /* Asegura que esté sobre el fondo oscuro */
+    z-index: 1;
 }
 
 .logo {
     height: 70px;
     margin-right: 55px;
-    /* Efecto sutil para el logo */
     filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5)); 
 }
 
@@ -64,7 +79,7 @@ body {
     text-transform: uppercase;
 }
 
-/* Navegación - Estilos de la versión remota fusionados */
+/* Navegación (si la añadieras al HTML) */
 .main-nav li {
     margin-left: 30px;
 }
@@ -82,15 +97,27 @@ body {
 }
 
 
-/* ---------------- MAIN CONTAINER Y HERO (ZONA PRINCIPAL) ---------------- */
+/*
+===================================================
+3. HERO SECTION (TÍTULO Y CONTENIDO PRINCIPAL)
+===================================================
+*/
 
-main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+/* Contenedor para el título centrado */
+.hero-title-container {
+    text-align: center; 
+    /* AJUSTE: Reduce el padding superior para eliminar el espacio excesivo */
+    padding: 10px 0 40px 0; 
 }
 
-/* La zona de alto impacto: imagen y texto introductorio */
+.hero-title-container h1 {
+    font-size: 2.8rem;
+    color: #1d3557; 
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+/* La zona de alto impacto: imagen y texto introductorio (DOS COLUMNAS) */
 .hero-section {
     display: flex;
     align-items: center;
@@ -99,42 +126,42 @@ main {
     overflow: hidden;
     margin-bottom: 40px;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    gap: 30px; /* Espacio entre la imagen y el texto */
 }
 
 .hero-image-container {
-    flex: 1.5; /* La imagen ocupa más espacio */
-    max-height: 450px; /* Altura máxima para la sección de la imagen */
+    flex: 1.5;
+    max-height: 450px;
     overflow: hidden;
+    /* AJUSTE: Añadimos padding para centrar visualmente la imagen dentro de su columna */
+    padding: 20px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
 }
 
 .hero-image-container img {
     width: 100%;
-    height: 100%;
-    object-fit: cover; /* Asegura que la imagen cubra el contenedor sin distorsionarse */
+    height: 100%; 
+    object-fit: cover;
     display: block;
 }
 
+/* Contenido de texto al lado de la imagen */
 .hero-content {
     flex: 1;
     padding: 40px;
-}
-
-.hero-content h1 {
-    font-size: 2.2rem;
-    color: #e63946; /* Un color de alarma */
-    margin-bottom: 15px;
-    font-weight: 700;
-}
-
-.hero-content p {
-    margin-bottom: 20px;
-    font-size: 1.1rem;
+    text-align: left; 
+    display: flex; 
+    flex-direction: column;
+    justify-content: center; 
+    align-items: flex-start; 
 }
 
 /* Botón CTA (Call to Action) */
 .cta-button {
     display: inline-block;
-    background-color: #457b9d; /* Un azul potente */
+    background-color: #457b9d;
     color: #fff;
     text-decoration: none;
     padding: 12px 25px;
@@ -156,33 +183,124 @@ main {
     font-weight: 600;
 }
 
-/* ---------------- MAIN CONTENT WRAPPER (SECTION Y ASIDE) ---------------- */
+/*
+===================================================
+ GALERÍA MULTIMEDIA 
+===================================================
+*/
+
+.media-gallery {
+    margin-bottom: 40px;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.media-gallery h2 {
+    color: #1d3557; 
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.gallery-description {
+    color: #457b9d;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+/* Estructura de GRID para 3 columnas */
+.gallery-grid {
+    display: grid;
+    /* 3 columnas de igual tamaño, adaptables */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px; /* Espacio entre los cuadros */
+}
+
+/* Estilos de las Tarjetas/Cuadros */
+.gallery-card {
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden; /* Importante para que la imagen se ajuste */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%; /* Asegura que todas las tarjetas tengan la misma altura si el contenido es similar */
+}
+
+.gallery-card:hover {
+    transform: translateY(-5px); /* Efecto 3D al pasar el ratón */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+}
+
+.card-content {
+    padding: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.gallery-image {
+    width: 100%;
+    /* Altura fija para uniformidad visual de las imágenes */
+    height: 200px; 
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-card h4 {
+    color: #e63946; /* Color de alarma */
+    font-size: 1.2rem;
+    padding: 15px;
+    margin-top: auto; /* Empuja el título hacia abajo si hay espacio */
+}
+
+
+/* Estilos Específicos para Videos (Ajustar el iframe) */
+.gallery-card.is-video .card-content {
+    /* Mantenemos el padding si es necesario, pero aseguramos la proporción del video */
+    padding: 0; 
+}
+
+/* Estilos Específicos para Videos (Ajustar la etiqueta <video>) */
+.gallery-video {
+    width: 100%;
+    /* La proporción 16:9 para videos */
+    aspect-ratio: 16 / 9; 
+    min-height: 200px; 
+    display: block; /* Asegura que no haya espacio extra debajo */
+}
+
+/* ---------------- MEDIA QUERIES PARA LA GALERÍA ---------------- */
+@media (max-width: 992px) {
+    .gallery-grid {
+        /* En tabletas, 2 columnas */
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
+    }
+}
+
+@media (max-width: 576px) {
+    .gallery-grid {
+        /* En móvil, 1 columna */
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/*
+===================================================
+4. MAIN CONTENT (SECTION y ASIDE)
+===================================================
+*/
 
 .main-content-wrapper {
     display: flex;
     gap: 30px; 
-    align-items: flex-start; /* Alinea los elementos al inicio */
+    align-items: flex-start;
 }
-
-/* Estilos para el contenedor principal. Le damos espacio en los lados y un margen superior. (Estilo remoto) */
-.main-content {
-    padding: 40px 20px;
-    max-width: 1200px; /* Ancho máximo para que no se vea demasiado estirado */
-    margin: 20px auto; /* Centra el contenedor en la página */
-}
-
-/* El 'content-container' usará Flexbox (Estilo remoto) */
-/* NOTA: Tu estructura usa .main-content-wrapper en lugar de .content-container, por eso dejo .main-content-wrapper como principal. */
-/* .content-container {
-    display: flex;
-    gap: 30px; 
-    flex-wrap: wrap;
-} */
-
 
 /* SECTION: Contenido Principal (Zona Caliente) */
 .main-section {
-    flex: 3; /* Ocupa 3/4 partes del ancho */
+    flex: 3;
     background-color: #fff;
     padding: 40px;
     border-radius: 12px;
@@ -204,15 +322,15 @@ main {
     font-size: 1.4rem;
 }
 
-/* La imagen dentro de la sección. (Estilo remoto) */
+/* Imagen dentro de la sección (si aplica) */
 .section-image {
     width: 100%;
-    height: 100%;
+    height: auto; 
     border-radius: 8px;
-    margin: 10px 15; /* Espacio arriba y abajo de la imagen */
+    margin: 10px 0; 
 }
 
-/* Listas de causas y soluciones */
+/* Listas y sus íconos */
 .causas-list, .soluciones-list {
     list-style: none;
     padding-left: 0;
@@ -224,7 +342,6 @@ main {
     position: relative;
 }
 
-/* Ícono personalizado para las listas */
 .causas-list li::before {
     content: '🔥';
     position: absolute;
@@ -266,12 +383,12 @@ hr {
 
 /* ASIDE: Enlaces de Refuerzo */
 .main-aside {
-    flex: 1; /* Ocupa 1/4 parte del ancho */
+    flex: 1; 
     background-color: #fff;
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-    position: sticky; /* Fija el aside mientras haces scroll en el contenido principal */
+    position: sticky; 
     top: 20px;
 }
 
@@ -294,16 +411,16 @@ hr {
 
 .aside-links a {
     text-decoration: none;
-    color: #e63946; /* Se mantiene el color local para resaltar (más visible que el verde/azul remoto) */
+    color: #e63946;
     font-weight: 600;
     transition: color 0.3s ease;
 }
 
 .aside-links a:hover {
-    color: #1d3557; /* Se mantiene el color local en hover (más coherente con la paleta) */
+    color: #1d3557;
 }
 
-/* Íconos sociales circulares */
+/* Íconos sociales circulares - Base */
 .social-icons {
     display: flex;
     gap: 20px;
@@ -318,22 +435,35 @@ hr {
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+    
+    /* Nueva estética: Borde sutil y sombra para profundidad */
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
+/* COLORES OFICIALES Y HOVER */
 .fa-twitter { background-color: #1da1f2; }
 .fa-facebook { background-color: #3b5998; }
 .fa-instagram { 
-    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
 }
+.fa-whatsapp { background-color: #25D366; }
 
 .social-icons a:hover {
-    transform: scale(1.1);
+    transform: scale(1.15); 
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5); 
+    border-color: #fff; 
 }
 
-/* ---------------- FOOTER ---------------- */
+
+/*
+===================================================
+5. FOOTER
+===================================================
+*/
 .main-footer {
-    background-color: #1d3557; /* Color oscuro sólido */
+    background-color: #1d3557; 
     color: #f1faee;
     text-align: center;
     padding: 25px;
@@ -355,33 +485,40 @@ hr {
     color: #e63946;
 }
 
-/* ---------------- MEDIA QUERIES (RESPONSIVE) ---------------- */
 
-/* Para tabletas y móviles */
+/*
+===================================================
+6. MEDIA QUERIES (RESPONSIVE)
+===================================================
+*/
+
+/* Para tabletas y móviles (menor a 992px) */
 @media (max-width: 992px) {
     .hero-section {
-        flex-direction: column; /* Apila el hero en pantallas pequeñas */
+        flex-direction: column; /* Apila el hero */
     }
 
     .hero-image-container {
         max-height: 300px;
         flex: auto;
+        padding: 0; /* Quita el padding en móvil para que la imagen sea más grande */
     }
-
+    
     .hero-content {
         padding: 30px;
     }
-
+    
     .main-content-wrapper {
         flex-direction: column; /* Apila la sección y el aside */
     }
 
     .main-aside {
-        position: static; /* Desactiva el sticky en móviles */
+        position: static; /* Desactiva el sticky */
         margin-top: 20px;
     }
 }
 
+/* Para móviles (menor a 576px) */
 @media (max-width: 576px) {
     .main-header {
         padding: 0 20px;
@@ -395,7 +532,9 @@ hr {
         padding: 20px;
     }
 
-    .hero-content h1 {
-        font-size: 1.8rem;
+    /* Título principal en móvil */
+    .hero-title-container h1 {
+        font-size: 2rem; 
+        padding: 10px 0 20px 0;
     }
 }
